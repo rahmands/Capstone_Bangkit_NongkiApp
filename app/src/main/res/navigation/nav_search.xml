@@ -3,13 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_search"
-    app:startDestination="@id/searchPageFragment">
+    app:startDestination="@id/navigation_search">
 
-    <fragment
-        android:id="@+id/searchPageFragment"
-        android:name="com.rahman.nongki.SearchPageFragment"
-        android:label="fragment_search_page"
-        tools:layout="@layout/fragment_search_page" />
+
     <fragment
         android:id="@+id/filterFragment"
         android:name="com.rahman.nongki.FilterFragment"

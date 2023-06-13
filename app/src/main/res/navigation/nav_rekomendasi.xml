@@ -3,21 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_rekomendasi"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/detailFragment">
+
+
 
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.rahman.nongki.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/wishListFragment"
-        android:name="com.rahman.nongki.WishListFragment"
-        android:label="fragment_wish_list"
-        tools:layout="@layout/fragment_wish_list" />
-    <fragment
         android:id="@+id/detailFragment"
-        android:name="com.rahman.nongki.DetailFragment"
+        android:name="com.rahman.nongki.view.rekomendasi.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
     <fragment

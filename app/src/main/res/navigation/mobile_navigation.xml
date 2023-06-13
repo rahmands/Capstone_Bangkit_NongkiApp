@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.rahman.nongki.view.BottomNavigation.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_search"
+        android:name="com.rahman.nongki.view.BottomNavigation.SearchPageFragment"
+        android:label="fragment_search_page"
+        tools:layout="@layout/fragment_search_page" />
+
+    <fragment
+        android:id="@+id/navigation_wishlist"
+        android:name="com.rahman.nongki.view.BottomNavigation.WishListFragment"
+        android:label="fragment_wish_list"
+        tools:layout="@layout/fragment_wish_list" />
+
+    <fragment
+        android:id="@+id/navigation_setting"
+        android:name="com.rahman.nongki.view.BottomNavigation.WishListFragment"
+        android:label="fragment_wish_list"
+        tools:layout="@layout/fragment_setting" />
+
+
+
+</navigation>

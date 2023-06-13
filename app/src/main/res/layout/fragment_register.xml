@@ -84,7 +84,7 @@
             app:startIconDrawable="@drawable/baseline_person_outline_24">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/nameEditText"
+                android:id="@+id/nameEditTextRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -119,7 +119,7 @@
             app:startIconDrawable="@drawable/baseline_alternate_email_24">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/emailEditText"
+                android:id="@+id/emailEditTextRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -154,7 +154,7 @@
             app:startIconDrawable="@drawable/baseline_lock_24">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/passwordEditText"
+                android:id="@+id/passwordEditTextRegister"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"

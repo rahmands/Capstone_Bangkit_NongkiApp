@@ -1,4 +1,6 @@
 package com.rahman.nongki.view.rekomendasi
 
-class MainViewModel {
+import android.app.Application
+
+class MainViewModel(mApplication: Application) {
 }

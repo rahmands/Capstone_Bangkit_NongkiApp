@@ -12,14 +12,14 @@
     android:layout_marginRight="8dp"
     android:layout_marginBottom="8dp"
     card_view:cardCornerRadius="8dp">
-    
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp">
 
         <ImageView
-            android:id="@+id/img_item_photo"
+            android:id="@+id/iv_wishList"
             android:layout_width="156dp"
             android:layout_height="218dp"
             android:scaleType="centerCrop"
@@ -31,16 +31,26 @@
             tools:src="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/spot_name"
-            android:layout_width="178dp"
-            android:layout_height="106dp"
-
-            android:layout_marginStart="24dp"
-            android:text="@tools:sample/lorem"
+            android:id="@+id/tv_spot_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="80dp"
             android:gravity="center"
-            card_view:layout_constraintStart_toEndOf="@+id/img_item_photo"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="55dp" />
+            android:text="@tools:sample/lorem"
+            card_view:layout_constraintStart_toEndOf="@+id/iv_wishList"
+            card_view:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_streetAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@tools:sample/lorem"
+            card_view:layout_constraintStart_toEndOf="@+id/iv_wishList"
+            card_view:layout_constraintTop_toBottomOf="@+id/tv_spot_name" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "650859507005",
+    "project_id": "c23-pr513-capstone",
+    "storage_bucket": "c23-pr513-capstone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:650859507005:android:44147a431bce16b0102954",
+        "android_client_info": {
+          "package_name": "com.rahman.nongki"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "650859507005-b62qv1i8sf522d31if4cvnnjr1jglt5i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rahman.nongki",
+            "certificate_hash": "8a796bf3ef65dcb39cca7b64aff575712e6c2c95"
+          }
+        },
+        {
+          "client_id": "650859507005-dsgmg3453md05eftmb3b0u4vcub2f9v0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTVdhmNQTrhNqu9h1KEPX1R3up10R6cS8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "650859507005-dsgmg3453md05eftmb3b0u4vcub2f9v0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

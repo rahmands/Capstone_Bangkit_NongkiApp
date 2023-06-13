@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/recommendation_cardview"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:layout_marginLeft="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginBottom="8dp"
+    card_view:cardCornerRadius="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/iv_recommendation"
+            android:layout_width="156dp"
+            android:layout_height="218dp"
+            android:scaleType="centerCrop"
+            card_view:layout_constraintBottom_toBottomOf="parent"
+            card_view:layout_constraintHorizontal_bias="0.187"
+            card_view:layout_constraintLeft_toLeftOf="parent"
+            card_view:layout_constraintRight_toRightOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent"
+            card_view:layout_constraintVertical_bias="0.0"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/place_recommendation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Nama Tempat"
+            android:textColor="@color/black"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/iv_recommendation" />
+
+        <TextView
+            android:id="@+id/address_recommendation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Alamat"
+            android:textColor="@color/black"
+            android:textSize="8sp"
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/place_recommendation" />
+
+        <ImageView
+            android:id="@+id/iv_location_recommendation"
+            android:layout_width="7dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/baseline_location_on_24"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/address_recommendation" />
+
+        <TextView
+            android:id="@+id/distance_recommendation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="8dp"
+            android:text="16"
+            android:textColor="#A4A4A4"
+            android:textSize="6sp"
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toEndOf="@+id/iv_location_recommendation"
+            card_view:layout_constraintTop_toBottomOf="@+id/address_recommendation" />
+
+        <TextView
+            android:id="@+id/km_recommendation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:text="km"
+            android:textColor="#A4A4A4"
+            android:textSize="6sp"
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toEndOf="@+id/distance_recommendation"
+            card_view:layout_constraintTop_toBottomOf="@+id/address_recommendation" />
+
+
+        <TextView
+            android:id="@+id/estimasi_recommendation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="16"
+            android:textColor="#A4A4A4"
+            android:textSize="6sp"
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toEndOf="@+id/km_recommendation"
+            card_view:layout_constraintTop_toBottomOf="@+id/address_recommendation" />
+
+
+        <TextView
+            android:id="@+id/minute_recommendation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:text="min"
+            android:textColor="#A4A4A4"
+            android:textSize="6sp"
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toEndOf="@+id/estimasi_recommendation"
+            card_view:layout_constraintTop_toBottomOf="@+id/address_recommendation" />
+
+
+        <ImageView
+            android:id="@+id/iv_rating_recommendation"
+            android:layout_width="7dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="-4dp"
+            android:src="@drawable/baseline_star_24"
+            card_view:layout_constraintStart_toStartOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/iv_location_recommendation" />
+
+
+        <TextView
+            android:id="@+id/rating_recommendation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="2dp"
+            android:text="4.7"
+            android:textColor="#A4A4A4"
+            android:textSize="6sp"
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toEndOf="@+id/iv_rating_recommendation"
+            card_view:layout_constraintTop_toBottomOf="@+id/distance_recommendation" />
+
+        <TextView
+            android:id="@+id/total_rating_recommendation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp"
+            android:text="(1000)"
+            android:textColor="#A4A4A4"
+            android:textSize="6sp"
+            android:textStyle="bold"
+            card_view:layout_constraintStart_toEndOf="@+id/rating_recommendation"
+            card_view:layout_constraintTop_toBottomOf="@+id/estimasi_recommendation" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
