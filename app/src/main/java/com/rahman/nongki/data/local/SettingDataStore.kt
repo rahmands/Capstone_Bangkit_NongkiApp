@@ -16,17 +16,21 @@ class SettingDataStore (
     private val dataStore: DataStore<Preferences>
     ){
 
-    private val TOKEN = stringPreferencesKey("token")
+    //private val TOKEN = stringPreferencesKey("token")
+
+    private val USER_ID = stringPreferencesKey("user_id")
 
     fun getToken(): Flow<String> {
         return dataStore.data.map {
-            it[TOKEN].toString()
+            it[USER_ID].toString()
         }
     }
 
-    suspend fun saveLoginSession(token: List<DataItemLogin?>?){
+
+
+    suspend fun saveLoginSession(token: String){
         dataStore.edit {
-            it[TOKEN] = token.toString()
+            it[USER_ID] = token
         }
     }
 
@@ -39,6 +43,12 @@ class SettingDataStore (
     suspend fun saveUserId(userId : List<DataItemLogin?>?){
         dataStore.edit {
             userId.toString()
+        }
+    }
+
+    fun getUserId(): Flow<String> {
+        return dataStore.data.map {
+            it[USER_ID].toString()
         }
     }
 

@@ -1,8 +1,9 @@
-package com.rahman.nongki.view.BottomNavigation
+package com.rahman.nongki.view.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.findNavController
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -10,15 +11,24 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.rahman.nongki.R
 import com.rahman.nongki.databinding.ActivityBottomNavBinding
+import com.rahman.nongki.model.ViewModelFactory
 
 class BottomNavActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityBottomNavBinding
+    private lateinit var bottomNavViewModel: BottomNavViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBottomNavBinding.inflate(layoutInflater)
+        bottomNavViewModel = ViewModelProvider(this, ViewModelFactory.getInstance(this))[BottomNavViewModel::class.java]
         setContentView(binding.root)
+        bottomNavViewModel.key.observe(this){
+            Log.e("key", it)
+            if (it.isNotEmpty()) {
+                bottomNavViewModel.getRecommendationData(it)
+            }
+        }
 
         supportActionBar?.hide()
 

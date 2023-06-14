@@ -19,6 +19,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/ivPlace"
                 android:layout_width="match_parent"
                 android:layout_height="305dp"
                 android:scaleType="fitXY"
@@ -57,17 +58,34 @@
 
         <TextView
             android:id="@+id/regionPlaceDetail"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
-            android:text="Kec. Ngaglik, Kab. Sleman"
+            android:text="Kec. Ngaglik"
             android:textColor="#59AD92"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addressPlaceDetail" />
+
+        <TextView
+            android:id="@+id/cityPlaceDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:text="Kota Yogyakarta"
+            android:textColor="#59AD92"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.032"
+            app:layout_constraintStart_toEndOf="@+id/regionPlaceDetail"
             app:layout_constraintTop_toBottomOf="@+id/addressPlaceDetail" />
 
         <TextView
@@ -98,6 +116,7 @@
             tools:layout_editor_absoluteY="411dp" />
 
         <TextView
+            android:id="@+id/tv_alamat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -122,6 +141,7 @@
             app:layout_constraintTop_toBottomOf="@+id/iv_location" />
 
         <TextView
+            android:id="@+id/tv_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
@@ -145,18 +165,30 @@
             app:layout_constraintTop_toBottomOf="@+id/iv_phone" />
 
         <TextView
-            android:id="@+id/tv_status"
-            android:layout_width="match_parent"
+            android:id="@+id/tv_open"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="12dp"
-            android:layout_marginEnd="16dp"
             android:text="Open"
             android:textColor="#59AD92"
-            android:textSize="16sp"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/iv_time"
+            app:layout_constraintTop_toBottomOf="@+id/iv_phone" />
+
+        <TextView
+            android:id="@+id/tv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="16dp"
+            android:text="Close"
+            android:textColor="#59AD92"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/iv_phone"
+            app:layout_constraintHorizontal_bias="0.116"
+            app:layout_constraintStart_toEndOf="@+id/tv_open"
             app:layout_constraintTop_toBottomOf="@+id/iv_phone" />
 
         <TextView

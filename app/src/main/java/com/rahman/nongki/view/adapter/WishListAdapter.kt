@@ -1,16 +1,13 @@
 package com.rahman.nongki.view.adapter
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.rahman.nongki.databinding.ItemRowWishlistBinding
-import com.rahman.nongki.model.dto.DataItem
+import com.rahman.nongki.model.dto.OverviewItem
 
-import com.rahman.nongki.view.rekomendasi.MainActivity
-
-class WishListAdapter(private val listPlace: List<DataItem>) :
+class WishListAdapter(private val listPlace: List<OverviewItem>, val onClick: (String) -> Unit) :
     RecyclerView.Adapter<WishListAdapter.ListViewHolder>() {
 
     class ListViewHolder(var binding: ItemRowWishlistBinding) : RecyclerView.ViewHolder(binding.root)
@@ -21,17 +18,17 @@ class WishListAdapter(private val listPlace: List<DataItem>) :
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val (photoReference, name, streetAddress) = listPlace[position]
+        val (placeID, regency, overallRating, images, formattedAddress, latitude, postalNumber,
+            city, longitude, province, name, streetAddress, FormattedPhone, userRatingTotal,
+            district, close, open) = listPlace[position]
         Glide.with(holder.itemView.context)
-            .load(photoReference)
+            .load(images)
             .into(holder.binding.ivWishList)
         holder.binding.tvSpotName.text = name
-        holder.binding.tvStreetAddress.text = streetAddress
+        holder.binding.tvStreetAddress.text = streetAddress.toString()
 
-        holder.itemView.setOnClickListener {
-            val intentDetailActivity = Intent(holder.itemView.context, MainActivity::class.java)
-            //intentDetailActivity.putExtra("EXTRA_USERNAME", username)
-            holder.itemView.context.startActivity(intentDetailActivity)
+        holder.binding.root.setOnClickListener{
+            onClick(listPlace[position]!!.placeID)
         }
     }
 

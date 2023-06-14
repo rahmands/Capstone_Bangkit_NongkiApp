@@ -1,46 +1,42 @@
 package com.rahman.nongki.data.remote
 
-import com.rahman.nongki.model.dto.LoginResponse
+import com.rahman.nongki.model.dto.*
 
-import com.rahman.nongki.model.dto.RecommendationResponse
-import com.rahman.nongki.model.dto.RegisterResponse
-import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ApiService {
 
-    @GET("/api/recommendation-place/{key}")
-    fun getRecommendationPlaces(
-        @Query("key") userId: String
-        //@Query("type") placeType: String?
-    ): Call<RecommendationResponse>
-
-    //@GET("/api/nearby-place/")
-    //fun getNearbyPlaces(
-      //  @Query("key") userId: String,
-        //@Query("type") placeType: String?
-    //): Call<NearbyResponse>
-
-    //@GET("/api/detail-place/{place_id}")
-    //fun getPlaceDetail(
-        //@Path("place_id") placeId: String): Call<PlaceDetailResponse>
-
     @POST("/register")
     @FormUrlEncoded
-    fun register(
+    suspend fun register(
         @Field("name") name : String,
         @Field("email") email : String,
         @Field("password") password : String
-    ):Call<RegisterResponse>
+    ):RegisterResponse
 
     @POST("/login")
     @FormUrlEncoded
-    fun login(
+    suspend fun login(
         @Field("email") email : String,
         @Field("password") password : String
-    ): Call<LoginResponse>
+    ): LoginResponse
+
+    @GET("/logout")
+    suspend fun logout(
+    ): LogoutResponse
+
+    @GET("/logged")
+    suspend fun logged(
+    ): LoggedResponse
+
+    @GET("/api/recomendation-place/")
+    suspend fun getRecommendationPlaces(
+        @Query("key") key: String
+    ): RecommendationResponse
+
+
+    @GET("/api/detail-place/{place_id}")
+    suspend fun getDetailPlace(
+        @Path("place_id") place_id: String
+    ): DetailResponse
 }

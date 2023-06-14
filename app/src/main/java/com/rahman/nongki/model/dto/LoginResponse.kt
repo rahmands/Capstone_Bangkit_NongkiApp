@@ -9,13 +9,16 @@ data class LoginResponse(
 	//val data: DataItemLogin,
 
 	@field:SerializedName("error")
-	val error: String? = null,
+	val error: Boolean? = null,
 
 	@field:SerializedName("message")
 	val message: String? = null
 ):java.io.Serializable
 
 data class DataItemLogin(
+
+	@field:SerializedName("User_ID")
+	val userID: String? = null,
 
 	@field:SerializedName("Email")
 	val email: String? = null,
@@ -26,15 +29,9 @@ data class DataItemLogin(
 	@field:SerializedName("Latitude")
 	val latitude: String? = null,
 
-	@field:SerializedName("User_ID")
-	val userID: String? = null,
-
 	@field:SerializedName("Longitude")
 	val longitude: String? = null,
 
 	@field:SerializedName("Password")
-	val password: String? = null,
-
-	@field:SerializedName("token")
-	val token : String
+	val password: Boolean? = null
 )

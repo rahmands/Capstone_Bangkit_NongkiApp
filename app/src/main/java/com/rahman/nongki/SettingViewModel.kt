@@ -11,12 +11,8 @@ import kotlinx.coroutines.launch
 class SettingViewModel(private val pref : SettingDataStore) : ViewModel(){
 
     fun getToken(): LiveData<String?> = pref.getToken().asLiveData()
+    fun getUserId(): LiveData<String?> = pref.getUserId().asLiveData()
 
-    fun saveLoginSession(token: List<DataItemLogin?>?){
-        viewModelScope.launch {
-            pref.saveLoginSession(token)
-        }
-    }
 
     fun clearLoginSession(){
         viewModelScope.launch {

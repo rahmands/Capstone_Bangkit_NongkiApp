@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.rahman.nongki.view.BottomNavigation.HomeFragment"
+        android:name="com.rahman.nongki.view.main.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="com.rahman.nongki.view.BottomNavigation.SearchPageFragment"
+        android:name="com.rahman.nongki.view.main.SearchPageFragment"
         android:label="fragment_search_page"
         tools:layout="@layout/fragment_search_page" />
 
     <fragment
         android:id="@+id/navigation_wishlist"
-        android:name="com.rahman.nongki.view.BottomNavigation.WishListFragment"
+        android:name="com.rahman.nongki.view.main.WishListFragment"
         android:label="fragment_wish_list"
         tools:layout="@layout/fragment_wish_list" />
 
     <fragment
         android:id="@+id/navigation_setting"
-        android:name="com.rahman.nongki.view.BottomNavigation.WishListFragment"
+        android:name="com.rahman.nongki.view.main.SettingFragment"
         android:label="fragment_wish_list"
         tools:layout="@layout/fragment_setting" />
 

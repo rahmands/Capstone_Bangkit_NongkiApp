@@ -14,8 +14,8 @@
         android:theme="@style/Theme.Nongki"
         tools:targetApi="31">
         <activity
-            android:name=".view.BottomNavigation.BottomNavActivity"
-            android:exported="false" >
+            android:name=".view.main.BottomNavActivity"
+            android:exported="true" >
 
         </activity>
         <activity

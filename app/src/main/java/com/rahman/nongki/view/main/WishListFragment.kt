@@ -1,16 +1,18 @@
-package com.rahman.nongki.view.BottomNavigation
+package com.rahman.nongki.view.main
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rahman.nongki.databinding.FragmentWishListBinding
 import com.rahman.nongki.model.ViewModelFactory
-import com.rahman.nongki.model.dto.DataItem
+import com.rahman.nongki.model.dto.OverviewItem
 import com.rahman.nongki.view.adapter.WishListAdapter
+import com.rahman.nongki.view.rekomendasi.MainActivity
 
 
 class WishListFragment : Fragment() {
@@ -26,37 +28,30 @@ class WishListFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentWishListBinding.inflate(inflater, container, false)
+        bottomNavViewModel = ViewModelProvider(requireActivity())[BottomNavViewModel::class.java]
+        bottomNavViewModel.favorite.observe(requireActivity()){
+            setListUsersData(it)
+        }
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        bottomNavViewModel = obtainViewModel()
-
-        bottomNavViewModel.getAllPlaces().observe(viewLifecycleOwner){
-            if (it != null) {
-                val listPlace = mutableListOf<DataItem>()
-                var place: DataItem
-                it.forEach{ nongki ->
-                    place = DataItem(nongki.name, nongki.streetAddress, nongki.photoReference,
-                    nongki.distance, nongki.regency, nongki.overallRating, nongki.latitude,
-                    nongki.city, nongki.longitude, nongki.province, nongki.distanceTime,
-                    nongki.userRatingTotal, nongki.district, nongki.placeId)
-                    listPlace.add(place)
-                }
-                setListUsersData(listPlace)
-            }
-        }
-    }
 
     override fun onDestroyView(){
         super.onDestroyView()
         _binding = null
     }
 
-    private fun setListUsersData(listPlace: List<DataItem>) {
+    private fun setListUsersData(listPlace: List<OverviewItem>) {
         binding.rvWishList.layoutManager = LinearLayoutManager(requireContext())
-        val listPlaceAdapter = WishListAdapter(listPlace)
+        val listPlaceAdapter = WishListAdapter(listPlace,
+            onClick = {
+                startActivity(
+                    Intent(requireActivity(), MainActivity::class.java)
+                        .putExtra(MainActivity.DATA,it)
+                )
+                //Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+
+            })
         binding.rvWishList.adapter = listPlaceAdapter
     }
 

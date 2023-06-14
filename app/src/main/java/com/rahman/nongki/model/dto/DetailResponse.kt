@@ -1,5 +1,7 @@
 package com.rahman.nongki.model.dto
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 data class DetailResponse(
@@ -11,13 +13,19 @@ data class DetailResponse(
 	val reviews: List<ReviewsItem?>? = null,
 
 	@field:SerializedName("error")
-	val error: String? = null,
+	val error: Boolean? = null,
 
 	@field:SerializedName("tags")
 	val tags: List<TagsItem?>? = null
 )
 
+
+@Entity(tableName = "places")
 data class OverviewItem(
+
+	@PrimaryKey(autoGenerate = false)
+	@field:SerializedName("Place_ID")
+	val placeID: String,
 
 	@field:SerializedName("Regency")
 	val regency: String? = null,
@@ -54,9 +62,6 @@ data class OverviewItem(
 
 	@field:SerializedName("FormattedPhone")
 	val formattedPhone: String? = null,
-
-	@field:SerializedName("Place_ID")
-	val placeID: String? = null,
 
 	@field:SerializedName("UserRatingTotal")
 	val userRatingTotal: String? = null,
