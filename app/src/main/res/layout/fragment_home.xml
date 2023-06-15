@@ -70,7 +70,7 @@
                 android:layout_height="40dp"
                 android:layout_marginStart="130dp"
                 android:gravity="center_horizontal"
-                android:text="Andi"
+                android:text=""
                 android:textColor="@color/black"
                 android:textSize="10sp"
                 android:textStyle="bold" />
@@ -131,15 +131,17 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_recommended"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="374dp"
+        android:layout_height="530dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_recommended" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_recommended"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

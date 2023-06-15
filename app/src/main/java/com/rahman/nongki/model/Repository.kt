@@ -43,6 +43,8 @@ class Repository (val apiService: ApiService, val dataStore: SettingDataStore, v
     suspend fun addFavorite(item: OverviewItem){
         return database.addFav(item)
     }
+
+    //get fav
     val favorite = database.getFav()
 
     suspend fun delFavorite(item: OverviewItem){

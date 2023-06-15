@@ -30,6 +30,8 @@ class BottomNavActivity : AppCompatActivity() {
             }
         }
 
+        bottomNavViewModel.favorite
+
         supportActionBar?.hide()
 
         val navView: BottomNavigationView = binding.navView

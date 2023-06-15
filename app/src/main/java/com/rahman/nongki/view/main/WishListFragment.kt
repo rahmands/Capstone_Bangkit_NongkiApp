@@ -30,6 +30,16 @@ class WishListFragment : Fragment() {
         _binding = FragmentWishListBinding.inflate(inflater, container, false)
         bottomNavViewModel = ViewModelProvider(requireActivity())[BottomNavViewModel::class.java]
         bottomNavViewModel.favorite.observe(requireActivity()){
+            if (it != null){
+                val listFavorite = mutableListOf<OverviewItem>()
+                var favorite : OverviewItem
+                it.forEach{ favoritePlace ->
+                    favorite = OverviewItem(favoritePlace.placeID, favoritePlace.name,
+                    favoritePlace.streetAddress, favoritePlace.images)
+                    listFavorite.add(favorite)
+                }
+
+            }
             setListUsersData(it)
         }
         return binding.root

@@ -8,7 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.rahman.nongki.R
 import com.rahman.nongki.databinding.FragmentDetailBinding
+import com.rahman.nongki.model.dto.OverviewItem
 import com.rahman.nongki.model.dto.ReviewsItem
 import com.rahman.nongki.view.adapter.ReviewAdapter
 
@@ -19,6 +21,8 @@ class DetailFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var userId: String
+    private var isFavorite: Boolean =false
+    private lateinit var favoritePlace: OverviewItem
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,9 +33,28 @@ class DetailFragment : Fragment() {
 
         mainViewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
         setDetail()
-        mainViewModel.detailList.observe(requireActivity()) {
+        mainViewModel.reviewList.observe(requireActivity()) {
             setReview(it as List<ReviewsItem>)
+        }
 
+        mainViewModel.favorite.observe(requireActivity()){
+            isFavorite = if (it == null){
+                binding.buttonFavorite.setImageResource(R.drawable.baseline_favorite_24)
+                true
+            } else {
+                binding.buttonFavorite.setImageResource(R.drawable.baseline_favorite_border_24)
+                false
+            }
+        }
+
+        binding.buttonFavorite.setOnClickListener {view ->
+            if (view.id == R.id.buttonFavorite){
+                if (isFavorite){
+                    mainViewModel.delFavorite(favoritePlace as OverviewItem)
+                } else{
+                    mainViewModel.addFavorite(favoritePlace as OverviewItem)
+                }
+            }
         }
         return binding.root
     }
@@ -47,6 +70,7 @@ class DetailFragment : Fragment() {
                 tvAlamat.text = data!!.overview?.get(0)!!.formattedAddress
                 tvPhone.text = data!!.overview?.get(0)!!.formattedPhone
                 tvOpen.text = data!!.overview?.get(0)!!.open
+                tvClose.text = data!!.overview?.get(0)!!.close
                 tvListCategory.text = data!!.tags?.get(0)!!.categories.toString()
                 tvListServiceOption.text = data!!.tags?.get(0)!!.categories.toString()
             }

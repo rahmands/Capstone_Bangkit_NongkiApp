@@ -10,7 +10,8 @@ class ReviewAdapter(private val review: List<ReviewsItem>):
 RecyclerView.Adapter<ReviewAdapter.ListViewHolder>() {
 
 
-    class ListViewHolder(var binding: ItemRowReviewsBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class ListViewHolder(var binding: ItemRowReviewsBinding) :
+        RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val bind = ItemRowReviewsBinding.inflate(LayoutInflater.from(parent.context), parent, false)

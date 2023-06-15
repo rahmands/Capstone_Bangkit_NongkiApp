@@ -40,6 +40,7 @@ class BottomNavViewModel(val repository: Repository) : ViewModel() {
         }
     }
 
+    //get favorite
     val favorite = repository.favorite
 
     fun logout(){

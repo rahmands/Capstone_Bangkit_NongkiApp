@@ -24,6 +24,7 @@
                 android:layout_height="305dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/exampleimage" />
+
         </androidx.cardview.widget.CardView>
 
         <TextView
@@ -135,24 +136,24 @@
             android:layout_width="26dp"
             android:layout_height="24dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/baseline_phone_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_location" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_alamat" />
 
         <TextView
             android:id="@+id/tv_phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="2dp"
             android:layout_marginEnd="16dp"
             android:text="0812xxxxxxx"
             android:textColor="#8F8F8F"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_location"
-            app:layout_constraintTop_toBottomOf="@+id/iv_location" />
+            app:layout_constraintTop_toTopOf="@+id/iv_phone" />
 
         <ImageView
             android:id="@+id/iv_time"
@@ -162,26 +163,25 @@
             android:layout_marginTop="8dp"
             android:src="@drawable/baseline_access_time_24"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_phone" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_phone" />
 
         <TextView
             android:id="@+id/tv_open"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="2dp"
             android:text="Open"
             android:textColor="#59AD92"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/iv_time"
-            app:layout_constraintTop_toBottomOf="@+id/iv_phone" />
+            app:layout_constraintTop_toTopOf="@+id/iv_time" />
 
         <TextView
             android:id="@+id/tv_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="12dp"
             android:layout_marginEnd="16dp"
             android:text="Close"
             android:textColor="#59AD92"
@@ -189,7 +189,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.116"
             app:layout_constraintStart_toEndOf="@+id/tv_open"
-            app:layout_constraintTop_toBottomOf="@+id/iv_phone" />
+            app:layout_constraintTop_toTopOf="@+id/tv_open" />
 
         <TextView
             android:id="@+id/tvCategory"
@@ -282,6 +282,48 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+        <LinearLayout
+            android:id="@+id/layout_bottom_menu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rv_reviews"
+            android:background="#F1FFF8"
+            android:layout_alignParentBottom="true">
+
+
+
+            <Button
+                android:id="@+id/buttonMap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Guide Me"
+                android:gravity="center"
+                android:paddingStart="100dp"
+                android:paddingEnd="100dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="#59AD92"
+                tools:ignore="RtlSymmetry" />
+
+            <ImageView
+                android:id="@+id/buttonFavorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/baseline_favorite_border_24" />
+
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

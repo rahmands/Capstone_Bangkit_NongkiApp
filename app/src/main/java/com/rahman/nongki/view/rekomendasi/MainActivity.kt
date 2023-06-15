@@ -17,7 +17,10 @@ class MainActivity : AppCompatActivity() {
         mainViewModel = ViewModelProvider(this, ViewModelFactory.getInstance(this))[MainViewModel::class.java]
         if (place != null){
             mainViewModel.getDetail(place)
+            mainViewModel.getReview(place)
         }
+
+
 
         supportActionBar?.hide()
         setContentView(binding.root)
