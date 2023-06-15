@@ -2,16 +2,15 @@ package com.rahman.nongki.data.local
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.rahman.nongki.model.dto.OverviewItem
 
 @Dao
 interface FavoriteDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun addFav(userItem: OverviewItem)
+    suspend fun addFav(favorite: Favorite)
 
     @Query("SELECT * FROM places")
-    fun getFav(): LiveData<List<OverviewItem>>
+    fun getFav(): LiveData<List<Favorite>>
 
     @Delete
-    suspend fun deleteFav(userItem: OverviewItem)
+    suspend fun deleteFav(favorite: Favorite)
 }

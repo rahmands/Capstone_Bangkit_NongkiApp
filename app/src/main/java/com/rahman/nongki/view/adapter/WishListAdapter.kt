@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.rahman.nongki.data.local.Favorite
 import com.rahman.nongki.databinding.ItemRowWishlistBinding
-import com.rahman.nongki.model.dto.OverviewItem
 
-class WishListAdapter(private val listPlace: List<OverviewItem>, val onClick: (String) -> Unit) :
+class WishListAdapter(private val listPlace: List<Favorite>, val onClick: (String) -> Unit) :
     RecyclerView.Adapter<WishListAdapter.ListViewHolder>() {
 
     class ListViewHolder(var binding: ItemRowWishlistBinding) : RecyclerView.ViewHolder(binding.root)
@@ -18,9 +18,7 @@ class WishListAdapter(private val listPlace: List<OverviewItem>, val onClick: (S
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-        val (placeID, regency, overallRating, images, formattedAddress, latitude, postalNumber,
-            city, longitude, province, name, streetAddress, FormattedPhone, userRatingTotal,
-            district, close, open) = listPlace[position]
+        val (placeID, images, name, streetAddress, overallRating) = listPlace[position]
         Glide.with(holder.itemView.context)
             .load(images)
             .into(holder.binding.ivWishList)

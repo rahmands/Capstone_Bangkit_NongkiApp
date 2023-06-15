@@ -24,10 +24,10 @@
         tools:layout="@layout/fragment_wish_list" />
 
     <fragment
-        android:id="@+id/navigation_setting"
-        android:name="com.rahman.nongki.view.main.SettingFragment"
-        android:label="fragment_wish_list"
-        tools:layout="@layout/fragment_setting" />
+        android:id="@+id/navigation_logout"
+        android:name="com.rahman.nongki.view.main.LogoutFragment"
+        android:label="fragment_logout"
+        tools:layout="@layout/fragment_logout" />
 
 
 

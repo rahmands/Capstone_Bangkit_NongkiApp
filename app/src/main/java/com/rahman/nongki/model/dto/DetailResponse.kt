@@ -1,7 +1,5 @@
 package com.rahman.nongki.model.dto
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 
 data class DetailResponse(
@@ -16,14 +14,16 @@ data class DetailResponse(
 	val error: Boolean? = null,
 
 	@field:SerializedName("tags")
-	val tags: List<TagsItem?>? = null
+	val tags: List<TagsItem?>? = null,
+
+	val favorite: Boolean? = null
 )
 
 
-@Entity(tableName = "places")
+//@Entity(tableName = "places")
 data class OverviewItem(
 
-	@PrimaryKey(autoGenerate = false)
+	//@PrimaryKey(autoGenerate = false)
 	@field:SerializedName("Place_ID")
 	val placeID: String,
 
@@ -40,7 +40,7 @@ data class OverviewItem(
 	val formattedAddress: String? = null,
 
 	@field:SerializedName("Latitude")
-	val latitude: String? = null,
+	val latitude: Double? = null,
 
 	@field:SerializedName("PostalNumber")
 	val postalNumber: String? = null,
@@ -49,7 +49,7 @@ data class OverviewItem(
 	val city: String? = null,
 
 	@field:SerializedName("Longitude")
-	val longitude: String? = null,
+	val longitude: Double? = null,
 
 	@field:SerializedName("Province")
 	val province: String? = null,

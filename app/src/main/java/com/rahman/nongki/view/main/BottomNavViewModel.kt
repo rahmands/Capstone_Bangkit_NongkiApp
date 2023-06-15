@@ -2,6 +2,7 @@ package com.rahman.nongki.view.main
 
 import android.util.Log
 import androidx.lifecycle.*
+import com.rahman.nongki.data.local.Favorite
 import com.rahman.nongki.model.Repository
 import com.rahman.nongki.model.dto.DataItem
 import kotlinx.coroutines.flow.onEach
@@ -20,6 +21,7 @@ class BottomNavViewModel(val repository: Repository) : ViewModel() {
     private var _token = MutableLiveData<String>()
     val token : LiveData<String> = _token
 
+    val favoriteList: LiveData<List<Favorite>> = repository.favorite
 
     val key = repository.token.asLiveData()
     fun getRecommendationData(key: String){
@@ -41,7 +43,7 @@ class BottomNavViewModel(val repository: Repository) : ViewModel() {
     }
 
     //get favorite
-    val favorite = repository.favorite
+    //val favorite = repository.favorite
 
     fun logout(){
         viewModelScope.launch {
@@ -49,6 +51,7 @@ class BottomNavViewModel(val repository: Repository) : ViewModel() {
                 val result = repository.logout()
                 if (result == false){
                     _message.value = "Berhasil"
+
                 } else {
                     _message.value = "Gagal"
                 }
@@ -58,6 +61,7 @@ class BottomNavViewModel(val repository: Repository) : ViewModel() {
             }
         }
     }
+
 
     init {
         repository.token.onEach {

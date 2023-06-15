@@ -5,12 +5,17 @@ import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.LiveData
+import com.rahman.nongki.data.local.Favorite
 import com.rahman.nongki.data.local.FavoriteDao
 import com.rahman.nongki.data.local.FavoriteDatabase
 import com.rahman.nongki.data.local.SettingDataStore
 import com.rahman.nongki.data.remote.ApiConfig
 import com.rahman.nongki.data.remote.ApiService
-import com.rahman.nongki.model.dto.*
+import com.rahman.nongki.model.dto.DetailResponse
+import com.rahman.nongki.model.dto.LoginResponse
+import com.rahman.nongki.model.dto.RecommendationResponse
+import com.rahman.nongki.model.dto.RegisterResponse
 
 class Repository (val apiService: ApiService, val dataStore: SettingDataStore, val database: FavoriteDao){
 
@@ -40,14 +45,19 @@ class Repository (val apiService: ApiService, val dataStore: SettingDataStore, v
         return apiService.getDetailPlace(placeid)
     }
 
-    suspend fun addFavorite(item: OverviewItem){
-        return database.addFav(item)
+    suspend fun addFavorite(item: Favorite): Result<String>{
+        try {
+            database.addFav(item)
+            return Result.success("Berhasil")
+        }catch (e: Exception){
+            return Result.failure(e)
+        }
     }
 
     //get fav
-    val favorite = database.getFav()
+    val favorite: LiveData<List<Favorite>> = database.getFav()
 
-    suspend fun delFavorite(item: OverviewItem){
+    suspend fun delFavorite(item: Favorite){
         return database.deleteFav(item)
     }
 
@@ -61,7 +71,20 @@ class Repository (val apiService: ApiService, val dataStore: SettingDataStore, v
         }
     }
 
+    fun cekFavorite(placeID: String, favorites: List<Favorite>): Boolean? {
 
+        return hasFavorite(placeID,favorites)
+
+    }
+
+    fun hasFavorite(overview: String, favorites: List<Favorite>): Boolean {
+        for (favorite in favorites) {
+            if (favorite.placeID == overview) {
+                return true     // Found a match!
+            }
+        }
+        return false    // No match found
+    }
 
 
     companion object {

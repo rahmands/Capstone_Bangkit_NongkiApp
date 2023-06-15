@@ -16,9 +16,14 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         mainViewModel = ViewModelProvider(this, ViewModelFactory.getInstance(this))[MainViewModel::class.java]
         if (place != null){
-            mainViewModel.getDetail(place)
+            mainViewModel.listFavorite.observe(this){
+                if (it != null)
+                mainViewModel.getDetail(place, it)
+            }
             mainViewModel.getReview(place)
         }
+
+
 
 
 

@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.rahman.nongki.data.local.Favorite
 import com.rahman.nongki.databinding.FragmentWishListBinding
 import com.rahman.nongki.model.ViewModelFactory
-import com.rahman.nongki.model.dto.OverviewItem
 import com.rahman.nongki.view.adapter.WishListAdapter
 import com.rahman.nongki.view.rekomendasi.MainActivity
 
@@ -29,39 +29,25 @@ class WishListFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentWishListBinding.inflate(inflater, container, false)
         bottomNavViewModel = ViewModelProvider(requireActivity())[BottomNavViewModel::class.java]
-        bottomNavViewModel.favorite.observe(requireActivity()){
+        bottomNavViewModel.favoriteList.observe(requireActivity()){
             if (it != null){
-                val listFavorite = mutableListOf<OverviewItem>()
-                var favorite : OverviewItem
-                it.forEach{ favoritePlace ->
-                    favorite = OverviewItem(favoritePlace.placeID, favoritePlace.name,
-                    favoritePlace.streetAddress, favoritePlace.images)
-                    listFavorite.add(favorite)
-                }
-
+                setListUsersData(it)
             }
-            setListUsersData(it)
         }
         return binding.root
     }
 
-
-    override fun onDestroyView(){
-        super.onDestroyView()
-        _binding = null
-    }
-
-    private fun setListUsersData(listPlace: List<OverviewItem>) {
+    private fun setListUsersData(listPlace: List<Favorite>) {
         binding.rvWishList.layoutManager = LinearLayoutManager(requireContext())
-        val listPlaceAdapter = WishListAdapter(listPlace,
-            onClick = {
-                startActivity(
-                    Intent(requireActivity(), MainActivity::class.java)
-                        .putExtra(MainActivity.DATA,it)
-                )
-                //Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+        val listPlaceAdapter = WishListAdapter(listPlace
+        ) {
+            startActivity(
+                Intent(requireActivity(), MainActivity::class.java)
+                    .putExtra(MainActivity.DATA, it)
+            )
+            //Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
 
-            })
+        }
         binding.rvWishList.adapter = listPlaceAdapter
     }
 

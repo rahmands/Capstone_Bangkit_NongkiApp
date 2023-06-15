@@ -5,9 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.rahman.nongki.data.local.Favorite
 import com.rahman.nongki.model.Repository
 import com.rahman.nongki.model.dto.DetailResponse
-import com.rahman.nongki.model.dto.OverviewItem
 import com.rahman.nongki.model.dto.ReviewsItem
 import kotlinx.coroutines.launch
 
@@ -22,11 +22,18 @@ class MainViewModel(val repository: Repository) : ViewModel() {
     private val _message = MutableLiveData<String>()
     val message: LiveData<String> = _message
 
-    fun getDetail(placeid: String){
+    private val _favorite = MutableLiveData<Boolean>()
+    val favorite: LiveData<Boolean> = _favorite
+
+    val listFavorite = repository.favorite
+
+
+    fun getDetail(placeid: String, favorites: List<Favorite>){
         viewModelScope.launch {
             try {
                 val result = repository.detailPlace(placeid)
                 if (result.error == false){
+                    cekFavorite(placeid, favorites)
                     _detailList.value = result
                     _message.value = "Berhasil"
                 } else {
@@ -56,19 +63,31 @@ class MainViewModel(val repository: Repository) : ViewModel() {
         }
     }
 
-    //get favorite
-    val favorite = repository.favorite
 
-    fun addFavorite(item: OverviewItem){
+
+    fun addFavorite(item: Favorite){
         Log.e("ADD", "harusnya masuk nih")
         viewModelScope.launch {
-            repository.addFavorite(item)
+            try {
+                _message.value = repository.addFavorite(item).getOrThrow()
+                _favorite.value = true
+            }catch (e:Exception){
+                _message.value = e.message
+            }
         }
     }
 
-    fun delFavorite(item: OverviewItem){
+
+
+    fun delFavorite(item: Favorite){
         viewModelScope.launch {
             repository.delFavorite(item)
+        }
+    }
+
+    fun cekFavorite(placeID: String, favorites: List<Favorite>) {
+        viewModelScope.launch {
+           _favorite.value = repository.cekFavorite(placeID, favorites)
         }
     }
 }

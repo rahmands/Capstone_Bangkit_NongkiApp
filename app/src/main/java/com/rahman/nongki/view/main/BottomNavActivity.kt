@@ -1,5 +1,6 @@
 package com.rahman.nongki.view.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.rahman.nongki.R
 import com.rahman.nongki.databinding.ActivityBottomNavBinding
 import com.rahman.nongki.model.ViewModelFactory
+import com.rahman.nongki.view.auth.AuthActivity
 
 class BottomNavActivity : AppCompatActivity() {
 
@@ -25,12 +27,18 @@ class BottomNavActivity : AppCompatActivity() {
         setContentView(binding.root)
         bottomNavViewModel.key.observe(this){
             Log.e("key", it)
-            if (it.isNotEmpty()) {
+            if (it.isNotEmpty() && it != "null") {
                 bottomNavViewModel.getRecommendationData(it)
+            }
+            else{
+                //Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
+                moveToLogin()
             }
         }
 
-        bottomNavViewModel.favorite
+
+
+        bottomNavViewModel.favoriteList
 
         supportActionBar?.hide()
 
@@ -42,10 +50,15 @@ class BottomNavActivity : AppCompatActivity() {
             R.id.navigation_home,
             R.id.navigation_search,
             R.id.navigation_wishlist,
-            R.id.navigation_setting
+            R.id.navigation_logout
         ).build()
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    fun moveToLogin(){
+        val intent = Intent(this, AuthActivity::class.java)
+        startActivity(intent)
     }
 }

@@ -1,5 +1,7 @@
 package com.rahman.nongki.view.rekomendasi
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,53 +11,45 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.rahman.nongki.R
+import com.rahman.nongki.data.local.Favorite
 import com.rahman.nongki.databinding.FragmentDetailBinding
-import com.rahman.nongki.model.dto.OverviewItem
 import com.rahman.nongki.model.dto.ReviewsItem
 import com.rahman.nongki.view.adapter.ReviewAdapter
 
 
 class DetailFragment : Fragment() {
     private lateinit var mainViewModel: MainViewModel
+
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var userId: String
+    var placeId = String
+
     private var isFavorite: Boolean =false
-    private lateinit var favoritePlace: OverviewItem
+    private var favoritePlace: Favorite? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         _binding = FragmentDetailBinding.inflate(inflater, container, false)
 
         mainViewModel = ViewModelProvider(requireActivity())[MainViewModel::class.java]
+
         setDetail()
         mainViewModel.reviewList.observe(requireActivity()) {
             setReview(it as List<ReviewsItem>)
         }
 
-        mainViewModel.favorite.observe(requireActivity()){
-            isFavorite = if (it == null){
-                binding.buttonFavorite.setImageResource(R.drawable.baseline_favorite_24)
-                true
-            } else {
-                binding.buttonFavorite.setImageResource(R.drawable.baseline_favorite_border_24)
-                false
-            }
-        }
 
-        binding.buttonFavorite.setOnClickListener {view ->
-            if (view.id == R.id.buttonFavorite){
-                if (isFavorite){
-                    mainViewModel.delFavorite(favoritePlace as OverviewItem)
-                } else{
-                    mainViewModel.addFavorite(favoritePlace as OverviewItem)
-                }
-            }
-        }
+
+
+
+
+
+
+
         return binding.root
     }
 
@@ -73,14 +67,60 @@ class DetailFragment : Fragment() {
                 tvClose.text = data!!.overview?.get(0)!!.close
                 tvListCategory.text = data!!.tags?.get(0)!!.categories.toString()
                 tvListServiceOption.text = data!!.tags?.get(0)!!.categories.toString()
+
+                buttonMap.setOnClickListener {
+                    navigateToMaps(
+                        data!!.overview?.get(0)!!.latitude!!,
+                        data!!.overview?.get(0)!!.longitude!!
+                    )
+                }
+
+                mainViewModel.favorite.observe(requireActivity()){
+                    if (it == true){
+                        binding.buttonFavorite.setImageResource(R.drawable.baseline_favorite_24)
+                        binding.buttonFavorite.setOnClickListener{
+                            mainViewModel.delFavorite(
+                                Favorite(
+                                    data.overview?.get(0)!!.placeID,
+                                    data.overview?.get(0)!!.images?.get(0),
+                                    data.overview?.get(0)!!.name,
+                                    data.overview?.get(0)!!.streetAddress,
+                                    data.overview?.get(0)!!.overallRating
+                                )
+                            )
+                        }
+                    } else{
+                        binding.buttonFavorite.setImageResource(R.drawable.baseline_favorite_border_24)
+                        binding.buttonFavorite.setOnClickListener{
+                            mainViewModel.addFavorite(
+                                Favorite(
+                                    data.overview?.get(0)!!.placeID,
+                                    data.overview?.get(0)!!.images?.get(0),
+                                    data.overview?.get(0)!!.name,
+                                    data.overview?.get(0)!!.streetAddress,
+                                    data.overview?.get(0)!!.overallRating
+                                )
+                            )
+                        }
+                    }
+                }
             }
         }
     }
+
+
 
     private fun setReview(listReview: List<ReviewsItem>){
         binding.rvReviews.layoutManager = LinearLayoutManager(requireActivity())
         val listReviewAdapter = ReviewAdapter(listReview)
         binding.rvReviews.adapter = listReviewAdapter
+    }
+
+    fun navigateToMaps(latitude: Double, longitude: Double) {
+        val uri = "geo:${latitude},${longitude}?q=${latitude},${longitude}(label)"
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
+        intent.setPackage("com.google.android.apps.maps")
+        startActivity(intent)
     }
 
 
