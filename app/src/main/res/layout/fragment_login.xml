@@ -90,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="@string/usernameHint"
+                android:hint="@string/email"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -164,7 +164,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="end"
                 android:text="@string/ask_account"
-                android:textSize="11sp" />
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/tvRegister"
@@ -174,7 +174,7 @@
                 android:text="@string/link_to_register"
                 android:layout_marginStart="10dp"
                 android:textColor="@color/teal_700"
-                android:textSize="11sp" />
+                android:textSize="12sp" />
 
         </LinearLayout>
 

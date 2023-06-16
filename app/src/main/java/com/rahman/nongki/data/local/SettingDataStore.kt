@@ -6,7 +6,6 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.rahman.nongki.model.dto.DataItemLogin
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
@@ -16,7 +15,6 @@ class SettingDataStore (
     private val dataStore: DataStore<Preferences>
     ){
 
-    //private val TOKEN = stringPreferencesKey("token")
 
     private val USER_ID = stringPreferencesKey("user_id")
 
@@ -25,8 +23,6 @@ class SettingDataStore (
             it[USER_ID].toString()
         }
     }
-
-
 
     suspend fun saveLoginSession(token: String){
         dataStore.edit {
@@ -39,19 +35,7 @@ class SettingDataStore (
             it.clear()
         }
     }
-
-    suspend fun saveUserId(userId : List<DataItemLogin?>?){
-        dataStore.edit {
-            userId.toString()
-        }
-    }
-
-    fun getUserId(): Flow<String> {
-        return dataStore.data.map {
-            it[USER_ID].toString()
-        }
-    }
-
+    
 
     companion object {
         @Volatile

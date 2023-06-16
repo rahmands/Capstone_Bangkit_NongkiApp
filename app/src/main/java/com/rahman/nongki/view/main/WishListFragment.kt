@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rahman.nongki.data.local.Favorite
 import com.rahman.nongki.databinding.FragmentWishListBinding
-import com.rahman.nongki.model.ViewModelFactory
 import com.rahman.nongki.view.adapter.WishListAdapter
 import com.rahman.nongki.view.rekomendasi.MainActivity
 
@@ -26,7 +25,6 @@ class WishListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         _binding = FragmentWishListBinding.inflate(inflater, container, false)
         bottomNavViewModel = ViewModelProvider(requireActivity())[BottomNavViewModel::class.java]
         bottomNavViewModel.favoriteList.observe(requireActivity()){
@@ -45,14 +43,8 @@ class WishListFragment : Fragment() {
                 Intent(requireActivity(), MainActivity::class.java)
                     .putExtra(MainActivity.DATA, it)
             )
-            //Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
-
         }
         binding.rvWishList.adapter = listPlaceAdapter
     }
 
-    private fun obtainViewModel(): BottomNavViewModel {
-        val factory = ViewModelFactory.getInstance(requireActivity().application)
-        return ViewModelProvider(this, factory).get(BottomNavViewModel::class.java)
-    }
 }

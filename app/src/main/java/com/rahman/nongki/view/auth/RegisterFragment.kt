@@ -62,7 +62,4 @@ class RegisterFragment : Fragment() {
         ).show()
     }
 
-//    private fun register(){
-//
-//    }
 }

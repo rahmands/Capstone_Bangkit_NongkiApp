@@ -23,10 +23,6 @@ class DetailFragment : Fragment() {
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
 
-    var placeId = String
-
-    private var isFavorite: Boolean =false
-    private var favoritePlace: Favorite? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

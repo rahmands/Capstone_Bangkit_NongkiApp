@@ -19,8 +19,8 @@
 
         <ImageView
             android:id="@+id/iv_recommendation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="250dp"
             android:scaleType="centerCrop"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintHorizontal_bias="0.297"

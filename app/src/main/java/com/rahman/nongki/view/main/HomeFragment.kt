@@ -25,13 +25,11 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(requireActivity())[BottomNavViewModel::class.java]
         viewModel.recommendationList.observe(requireActivity()){
@@ -49,8 +47,6 @@ class HomeFragment : Fragment() {
                 Intent(requireActivity(),MainActivity::class.java)
                     .putExtra(MainActivity.DATA,it)
             )
-            //Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
-
         })
         binding.rvRecommended.adapter = listRecommendationAdapter
     }

@@ -15,9 +15,6 @@ class BottomNavViewModel(val repository: Repository) : ViewModel() {
     private val _message = MutableLiveData<String>()
     val message: LiveData<String> = _message
 
-    private val _nearbyList = MutableLiveData<List<DataItem>>()
-    val nearbyList: LiveData<List<DataItem>> = _nearbyList
-
     private var _token = MutableLiveData<String>()
     val token : LiveData<String> = _token
 
@@ -41,9 +38,6 @@ class BottomNavViewModel(val repository: Repository) : ViewModel() {
             }
         }
     }
-
-    //get favorite
-    //val favorite = repository.favorite
 
     fun logout(){
         viewModelScope.launch {

@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="com.rahman.nongki.view.main.SearchPageFragment"
+        android:name="com.rahman.nongki.view.main.SearchFragment"
         android:label="fragment_search_page"
-        tools:layout="@layout/fragment_search_page" />
+        tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/navigation_wishlist"

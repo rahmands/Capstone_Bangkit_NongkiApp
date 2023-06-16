@@ -31,7 +31,6 @@ class BottomNavActivity : AppCompatActivity() {
                 bottomNavViewModel.getRecommendationData(it)
             }
             else{
-                //Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
                 moveToLogin()
             }
         }

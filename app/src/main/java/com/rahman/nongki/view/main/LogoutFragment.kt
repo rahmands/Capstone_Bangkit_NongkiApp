@@ -18,7 +18,7 @@ class LogoutFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         _binding = FragmentLogoutBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(requireActivity())[BottomNavViewModel::class.java]
 

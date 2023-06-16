@@ -20,9 +20,6 @@ class AuthViewModel (val repository: Repository): ViewModel() {
     private val _isError = MutableLiveData<String>()
     val isError: LiveData<String> = _isError
 
-    private var _isButtonEnable = MutableLiveData<Boolean>()
-    val isButtonEnable: LiveData<Boolean> get() = _isButtonEnable
-
     private val _registerResponse = MutableLiveData<RegisterResponse>()
     val registerResponse: LiveData<RegisterResponse> get() = _registerResponse
 
