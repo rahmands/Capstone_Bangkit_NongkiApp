@@ -47,6 +47,31 @@ The source code of Android app of Nongki using Kotlin in order to complete Bangk
 and make sure your android version is Android 8.0 (Oreo) or the latest version**
 
 
-**This is one view of the Nongki App**
+**This view of the Nongki App**
+* **Home**
 
-![alt text](https://cdn.discordapp.com/attachments/1106247247055831142/1119240384309116968/Home.png?raw=true)
+![alt text](https://cdn.discordapp.com/attachments/815952563563659284/1119245385764978748/Screenshot_2023-06-16-19-38-20-00_aab294425160601bc186b3397d4052f3.jpg?raw=true)
+
+
+* **Detail**
+
+![alt text](https://cdn.discordapp.com/attachments/815952563563659284/1119246746392997919/Screenshot_2023-06-16-19-39-30-63_aab294425160601bc186b3397d4052f3.jpg?raw=true)
+
+
+![alt text](https://cdn.discordapp.com/attachments/815952563563659284/1119247117857325096/Screenshot_2023-06-16-19-39-37-84_aab294425160601bc186b3397d4052f3.jpg?raw=true)
+
+* **Maps**
+
+![alt text](https://cdn.discordapp.com/attachments/815952563563659284/1119247200787120138/Screenshot_2023-06-16-19-40-20-50_3d9111e2d3171bf4882369f490c087b4.jpg?raw=true)
+
+
+
+* **Wishlist**
+
+![alt text](https://cdn.discordapp.com/attachments/815952563563659284/1119245271545688075/Screenshot_2023-06-16-19-38-02-74_aab294425160601bc186b3397d4052f3.jpg?raw=true)
+
+
+
+* **Setting**
+
+![alt text](https://cdn.discordapp.com/attachments/815952563563659284/1119247279187034122/Screenshot_2023-06-16-19-38-10-73_aab294425160601bc186b3397d4052f3.jpg?raw=true)
