@@ -17,6 +17,9 @@ class AuthViewModel (val repository: Repository): ViewModel() {
     private val _message = MutableLiveData<String>()
     val message: LiveData<String> = _message
 
+    private val _isError = MutableLiveData<String>()
+    val isError: LiveData<String> = _isError
+
     private var _isButtonEnable = MutableLiveData<Boolean>()
     val isButtonEnable: LiveData<Boolean> get() = _isButtonEnable
 
@@ -58,10 +61,6 @@ class AuthViewModel (val repository: Repository): ViewModel() {
                 _message.value = e.message?: "Error"
             }
         }
-    }
-
-    fun logout(){
-        TODO("Nanti di akhir")
     }
 
     val key = repository.token.asLiveData()

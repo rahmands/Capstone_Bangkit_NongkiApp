@@ -24,4 +24,10 @@
     <string name="choose_pref">What Kind of Place Do You Want To Visit?</string>
     <string name="choose_pref_dietary">Select any of the following dietary restrictions that apply to you</string>
     <string name="review">seru ada live musik dan dj nyacocok buat party dan banyak spot yg instagramable lokasinya jga strategis di tengah pusat kota</string>
+    <string name="searchbar_hint">Masukkan kata</string>
+
+
+
+    <string name="menu_1">Menu 1</string>
+    <string name="menu_2">Menu 2</string>
 </resources>

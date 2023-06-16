@@ -15,12 +15,12 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="374dp">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/iv_recommendation"
-            android:layout_width="395dp"
-            android:layout_height="263dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:scaleType="centerCrop"
             card_view:layout_constraintBottom_toBottomOf="parent"
             card_view:layout_constraintHorizontal_bias="0.297"

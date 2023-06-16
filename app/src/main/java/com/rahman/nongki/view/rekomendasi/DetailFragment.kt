@@ -42,14 +42,6 @@ class DetailFragment : Fragment() {
             setReview(it as List<ReviewsItem>)
         }
 
-
-
-
-
-
-
-
-
         return binding.root
     }
 
@@ -67,11 +59,15 @@ class DetailFragment : Fragment() {
                 tvClose.text = data!!.overview?.get(0)!!.close
                 tvListCategory.text = data!!.tags?.get(0)!!.categories.toString()
                 tvListServiceOption.text = data!!.tags?.get(0)!!.categories.toString()
+                ratingMain.text = data!!.overview?.get(0)!!.overallRating
+                totalRatingMain.text = data!!.overview?.get(0)!!.userRatingTotal
+
 
                 buttonMap.setOnClickListener {
                     navigateToMaps(
                         data!!.overview?.get(0)!!.latitude!!,
-                        data!!.overview?.get(0)!!.longitude!!
+                        data!!.overview?.get(0)!!.longitude!!,
+                        data!!.overview?.get(0)!!.name!!
                     )
                 }
 
@@ -116,8 +112,8 @@ class DetailFragment : Fragment() {
         binding.rvReviews.adapter = listReviewAdapter
     }
 
-    fun navigateToMaps(latitude: Double, longitude: Double) {
-        val uri = "geo:${latitude},${longitude}?q=${latitude},${longitude}(label)"
+    fun navigateToMaps(latitude: Double, longitude: Double, name: String) {
+        val uri = "geo:${latitude},${longitude}?q=${latitude},${longitude}(${name})"
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
         intent.setPackage("com.google.android.apps.maps")
         startActivity(intent)

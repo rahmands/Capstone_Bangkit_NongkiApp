@@ -30,6 +30,8 @@ class AuthActivity : AppCompatActivity() {
             }
         }
 
+        supportActionBar?.hide()
+
 
 
     }

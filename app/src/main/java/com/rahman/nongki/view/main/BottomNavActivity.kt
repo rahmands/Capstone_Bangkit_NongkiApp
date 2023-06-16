@@ -50,7 +50,7 @@ class BottomNavActivity : AppCompatActivity() {
             R.id.navigation_home,
             R.id.navigation_search,
             R.id.navigation_wishlist,
-            R.id.navigation_logout
+            R.id.navigation_setting
         ).build()
 
         setupActionBarWithNavController(navController, appBarConfiguration)

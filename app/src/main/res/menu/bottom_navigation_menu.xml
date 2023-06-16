@@ -17,8 +17,8 @@
         android:icon="@drawable/baseline_favorite_border_24"
         android:title="WishList"/>
     <item
-        android:id="@+id/navigation_logout"
+        android:id="@+id/navigation_setting"
         android:enabled="true"
-        android:icon="@drawable/baseline_logout_24"
-        android:title="Logout" />
+        android:icon="@drawable/baseline_settings_24"
+        android:title="Setting" />
 </menu>

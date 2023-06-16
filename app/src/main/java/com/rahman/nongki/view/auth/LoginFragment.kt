@@ -20,8 +20,6 @@ class LoginFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var authViewModel: AuthViewModel
 
-    private lateinit var email: String
-    private lateinit var password: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
