@@ -42,5 +42,7 @@ The source code of Android app of Nongki using Kotlin in order to complete Bangk
               https://github.com/rahmands/Capstone_Bangkit_NongkiApp.git
               
               
-**If you want to run this App in your smartphone you can download [this](https://drive.google.com/file/d/1DiDjAuw-QWvbPfFi-EZFJG2XL_4mClK7/view?usp=drive_link)**
+**If you want to run this App in your smartphone you can download in this link 
+[Nongki App](https://drive.google.com/file/d/1DiDjAuw-QWvbPfFi-EZFJG2XL_4mClK7/view?usp=drive_link)
+and make sure your android version is Android 8.0 (Oreo) or the latest version**
 
