@@ -46,3 +46,7 @@ The source code of Android app of Nongki using Kotlin in order to complete Bangk
 [Nongki App](https://drive.google.com/file/d/1DiDjAuw-QWvbPfFi-EZFJG2XL_4mClK7/view?usp=drive_link)
 and make sure your android version is Android 8.0 (Oreo) or the latest version**
 
+
+**This is one view of the Nongki App**
+
+![alt text](https://cdn.discordapp.com/attachments/1106247247055831142/1119240384309116968/Home.png?raw=true)
